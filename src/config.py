@@ -1,0 +1,6 @@
+WINDOW_NAME = "BlueStacks App Player"
+LOCKED_WIDTH = 540
+LOCKED_HEIGHT = 960
+ADB_PATH = "adb"
+ADB_HOST = "127.0.0.1:5556"
+TEMPLATES_FOLDER_NAME = "templates"
