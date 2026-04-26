@@ -7,7 +7,6 @@ from src.config import TEMPLATES_FOLDER_NAME
 from src.image_match import match_image, capture_window
 import src.adb_wrapper as adb
 
-
 def pascal_to_snake(name: str) -> str:
     name = re.sub(r'([a-z0-9])([A-Z])', r'\1_\2', name)
     return name.lower()
@@ -19,7 +18,6 @@ def load_templates(folder: Path):
         for file in folder.iterdir()
         if file.is_file()
     }
-
 
 class Page(Enum):
     MAIN = ""
