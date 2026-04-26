@@ -104,11 +104,27 @@ def watch_ads_shop(navigator: Navigator):
     navigator.return_to_main()
 
 
+def watch_ads_guild(navigator: Navigator):
+    navigator.move_to(Page.GUILD)
+
+    navigator.move_in_page("daily_donate")
+
+    if not navigator.move_in_page("free_guild_button", "whole"):
+        return False
+
+    watch_ad(navigator)
+
+    adb.click(270, 900)
+    time.sleep(1)
+
+    navigator.return_to_main()
+
+
 def main():
     hwnd, rect = init_window()
     navigator = Navigator(hwnd)
     navigator.return_to_main()
-    watch_ads_blitz(navigator)
+    watch_ads_guild(navigator)
    
 if __name__ == "__main__":
     main()
