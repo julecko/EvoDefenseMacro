@@ -119,12 +119,29 @@ def watch_ads_guild(navigator: Navigator):
 
     navigator.return_to_main()
 
+def watch_ads_fort(navigator: Navigator):
+    navigator.move_to(Page.TERRITORY)
+
+    navigator.move_in_page("fort")
+
+    navigator.move_in_page("fort_craft_button")
+    navigator.move_in_page("free_fort_button")
+
+    watch_ad(navigator)
+
+    adb.click(270, 900)
+    time.sleep(2)
+
+    navigator.move_in_page("fort_back_button")
+
+    navigator.return_to_main()
+
 
 def main():
     hwnd, rect = init_window()
     navigator = Navigator(hwnd)
     navigator.return_to_main()
-    watch_ads_guild(navigator)
+    watch_ads_fort(navigator)
    
 if __name__ == "__main__":
     main()
