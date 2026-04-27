@@ -129,6 +129,7 @@ def watch_ads_fort(navigator: Navigator):
 
     watch_ad(navigator)
 
+    time.sleep(5)
     adb.click(270, 900)
     time.sleep(2)
 
@@ -136,12 +137,36 @@ def watch_ads_fort(navigator: Navigator):
 
     navigator.return_to_main()
 
+def watch_ads_event(navigator: Navigator):
+    adb.click(40, 280)
+    time.sleep(3)
+
+    navigator.move_in_page("free_stamina_event")
+    watch_ad(navigator)
+    time.sleep(1)
+    adb.click(240, 900)
+    time.sleep(1)
+
+    navigator.move_in_page("daily_deals_button")
+    time.sleep(2)
+    navigator.move_in_page("free_crystal_event")
+    watch_ad(navigator)
+    time.sleep(1)
+    adb.click(240, 900)
+    time.sleep(1)
+
+    navigator.move_in_page("event_back_button")
+
 
 def main():
     hwnd, rect = init_window()
     navigator = Navigator(hwnd)
     navigator.return_to_main()
     watch_ads_fort(navigator)
+    watch_ads_shop(navigator)
+    watch_ads_event(navigator)
+    watch_ads_blitz(navigator)
+    watch_ads_guild(navigator)
    
 if __name__ == "__main__":
     main()
